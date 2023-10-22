@@ -1,0 +1,28 @@
+﻿@using CODEx.Model
+@model IEnumerable<Events>
+
+<div class="row pd-3">
+    @foreach (var eventlist in Model)
+    {
+        <div class="col-lg-3 col-sm-6">
+            <div class="row p-2">
+                <div class="col-12 p-1">
+                    <div class="card border-0  p-3 shadow border-top border-5 rounded">
+                        <img src="@eventlist.PosterUrl" class="card-img-top rounded" />
+                        <div class="card-body pb-0">
+                            <div class="pl-1">
+                                <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@eventlist.Name</p>
+                                <p class="card-title text-warning text-center">by <b>@eventlist.Description</b></p>
+                            </div>
+                        </div>
+                        <div>
+                            <a asp-action="Details" asp-route-productId="@eventlist.Id" class="btn btn-primary bg-gradient border-0 form-control">
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

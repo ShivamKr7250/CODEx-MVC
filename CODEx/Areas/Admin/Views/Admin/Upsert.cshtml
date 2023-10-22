@@ -1,0 +1,85 @@
+﻿@using CODEx.Model.View_Models
+
+@model EventVM
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row text-center">
+            <h2 class="text-primary py-2"> @(Model.Event.Id!=0?"Update":"Create") Event</h2>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="Event.Id" hidden />
+            <input asp-for="Event.PosterUrl" hidden />
+            <div class="row">
+                <div class="col-10">
+                    <div class="border p-3">
+                        @*<div asp-validation-summary="ModelOnly"></div>*@
+                        <div class="mb-3 row">
+                            <label asp-for="Event.Name" class="p-1"></label>
+                            <input asp-for="Event.Name" class="form-control border-0 shadow" />
+                            <span asp-validation-for="Event.Name" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="Event.Description" class="p-1"></label>
+                            <textarea asp-for="Event.Description" class="form-control border-0 shadow"></textarea>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="Event.Date" class="p-1"></label>
+                            <input type="date" asp-for="Event.Date" class="form-control border-0 shadow" />
+                            <span asp-validation-for="Event.Date" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="Event.TotalParticipant" class="p-1"></label>
+                            <input asp-for="Event.TotalParticipant" class="form-control border-0 shadow" />
+                            <span asp-validation-for="Event.TotalParticipant" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="Event.PosterUrl" class="p-1 text-muted"></label>
+                            <input type="file" name="file" asp-for="Event.PosterUrl" class="form-control border-0 shadow" />
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-3">
+                                @if (Model.Event.Id != 0)
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Update</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Create</button>
+                                }
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a asp-controller="Admin" asp-action="Index" class="btn btn-outline-secondary border form-control">
+                                    Back to List
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img src="@Model.Event.PosterUrl" width="100%" style="border-radius:5px; border:1px solid #bbb9b9"
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'mentions anchor autolink charmap emoticons lists table visualblocks wordcount checklist mediaembed casechange export pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough| align lineheight | tinycomments | checklist numlist bullist indent outdent',
+        });
+    </script>
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    
+}
