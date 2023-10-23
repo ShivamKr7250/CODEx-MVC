@@ -24,5 +24,7 @@ namespace CODEx.Model
 
         [Required]
         public int TotalParticipant {  get; set; }
+
+        public string? Glimpse1 { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 using CODEx.DataAccess.Repository.IRepository;
 using CODEx.Model;
+using CODEx.Model.View_Models;
 using CODEx.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -22,7 +23,13 @@ namespace CODEx.Areas.User.Controllers
         {
             IEnumerable<Events> eventList = _unitOfWork.Event.GetAll();
             IEnumerable<Coordinator> coordinatorList = _unitOfWork.Coordinator.GetAll();
-            return View(eventList);
+            var viewModel = new ListVM
+            {
+                Events = eventList,
+                Coordinators = coordinatorList
+            };
+
+            return View(viewModel);
         }
 
         public IActionResult Details(int eventId)

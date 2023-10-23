@@ -1,8 +1,22 @@
 ﻿@using CODEx.Model
-@model IEnumerable<Events>
+@model ListVM
 
-<div class="row pd-3">
-    @foreach (var eventlist in Model)
+@{
+    var limit = 5; // Set your desired limit here
+    var coordinators = Model.Coordinators.Take(limit);
+}
+
+<header class="banner">
+    <h1>Welcome to CODEx Club MMDU</h1>
+    <p>Community of Developers</p>
+    <a href="#about" class="btn">Learn More</a>
+</header>
+<br />
+<hr />
+<!-- Our Services Section -->
+<section id="services" class="services-section row p-2">
+    <h2>Our Events</h2>
+    @foreach (var eventlist in Model.Events)
     {
         <div class="col-lg-3 col-sm-6">
             <div class="row p-2">
@@ -16,7 +30,7 @@
                             </div>
                         </div>
                         <div>
-                            <a asp-action="Details" asp-route-productId="@eventlist.Id" class="btn btn-primary bg-gradient border-0 form-control">
+                            <a asp-action="Details" asp-route-eventId="@eventlist.Id" class="btn btn-primary bg-gradient border-0 form-control">
                                 Details
                             </a>
                         </div>
@@ -25,4 +39,29 @@
             </div>
         </div>
     }
-</div>
+    <!-- Add more services as needed -->
+</section>
+<br />
+<hr />
+<!-- Team Members Section -->
+<section id="team" class="team-section">
+    <h2>Our Team</h2>
+    @foreach (var coordinatorlist in coordinators)
+    {
+    <div class="team-member">
+        <div class="team-member-info">
+                <img src="@coordinatorlist.ImageUrl" alt="Team Member 1">
+            <h3>@coordinatorlist.Name</h3>
+            <p>@coordinatorlist.Designation</p>
+        </div>
+    </div>
+    }
+        <a asp-area="Admin" asp-action="Details" asp-controller="Coordinator" asp class="btn btn-primary bg-gradient border-0 form-control">
+                Details
+        </a>
+    <!-- Add more team members as needed -->
+</section>
+
+
+
+

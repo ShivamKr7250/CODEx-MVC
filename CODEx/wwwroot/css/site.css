@@ -1,22 +1,141 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
+/* Style for the banner */
+.banner {
+    background-image: url('https://cdn.pixabay.com/photo/2015/10/29/14/39/web-1012469_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+    .banner h1 {
+        font-size: 36px;
+    }
+
+    .banner p {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+/* Button style */
+.btn {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+
+/* Style for the team section */
+.team-section {
+    background-color: #f4f4f4;
+    padding: 40px;
+    text-align: center;
+}
+
+.team-member {
+    display: inline-block;
+    margin: 20px;
+}
+
+    .team-member img {
+        max-width: 150px;
+        border-radius: 50%;
+    }
+
+/* Style for the services section */
+.services-section {
+    background-color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+
+.service {
+    display: inline-block;
+    margin: 20px;
+}
+
+    .service i {
+        font-size: 36px;
+        color: #007BFF;
+    }
+
+
+/* Designer Footer Styles */
+.designer-footer {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 150px;
+    height: auto;
+}
+
+.footer-info, .footer-social {
+    text-align: center;
+}
+
+    .footer-info h4, .footer-social h4 {
+        font-size: 18px;
+    }
+
+    .footer-info p, .footer-social ul {
+        list-style: none;
+    }
+
+    .footer-info p {
+        font-size: 16px;
+        margin: 5px 0;
+    }
+
+    .footer-social ul li {
+        display: inline;
+        margin: 0 10px;
+        font-size: 24px;
+    }
+
+        .footer-social ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
