@@ -10,6 +10,8 @@ namespace CODEx.DataAccess.Repository.IRepository
     {
         IEventRepository Event { get; }
 
+        ICoordinatorRepository Coordinator { get; }
+
         void Save();
     }
 }

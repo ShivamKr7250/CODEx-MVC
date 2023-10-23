@@ -31,14 +31,6 @@ namespace CODEx.DataAccess.Repository
         {
             IQueryable<T> query = DbSet;
             query = query.Where(filter);
-            if (!string.IsNullOrEmpty(includeProperties))
-            {
-                foreach (var includeprop in includeProperties
-                    .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    query = query.Include(includeprop);
-                }
-            }
             return query.FirstOrDefault();
         }
 

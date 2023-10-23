@@ -21,6 +21,7 @@ namespace CODEx.Areas.User.Controllers
         public IActionResult Index()
         {
             IEnumerable<Events> eventList = _unitOfWork.Event.GetAll();
+            IEnumerable<Coordinator> coordinatorList = _unitOfWork.Coordinator.GetAll();
             return View(eventList);
         }
 

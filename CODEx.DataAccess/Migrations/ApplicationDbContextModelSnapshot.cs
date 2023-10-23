@@ -22,6 +22,75 @@ namespace CODEx.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CODEx.Model.Coordinator", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Batch")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Designation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LinkedIn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Coordinator");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Batch = "2021-2025",
+                            Description = "This was a Technical Event",
+                            Designation = "President",
+                            Name = "Da-Vinci Code 3.0"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Batch = "2021-2025",
+                            Description = "This was a Technical Event",
+                            Designation = "Vice-President",
+                            Name = "X-QuizIT 3.0"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Batch = "2021-2025",
+                            Description = "This was a Technical Event",
+                            Designation = "Secretary",
+                            Name = "Edge Map "
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Batch = "2021-2025",
+                            Description = "This was a Technical Event",
+                            Designation = "Vice-Secretary",
+                            Name = "TechNode"
+                        });
+                });
+
             modelBuilder.Entity("CODEx.Model.Events", b =>
                 {
                     b.Property<int>("Id")

@@ -9,5 +9,6 @@ namespace CODEx.Model.View_Models
     public class EventVM
     {
         public Events Event { get; set; }
+
     }
 }

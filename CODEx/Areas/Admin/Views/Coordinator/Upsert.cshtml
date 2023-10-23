@@ -1,0 +1,90 @@
+﻿@using CODEx.Model.View_Models
+
+@model CoordinatorVM
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row text-center">
+            <h2 class="text-primary py-2"> @(Model.Coordinator.Id!=0?"Update":"Create") Event</h2>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="Coordinator.Id" hidden />
+            <input asp-for="Coordinator.ImageUrl" hidden />
+            <div class="row">
+                <div class="col-10">
+                    <div class="border p-3">
+                        @*<div asp-validation-summary="ModelOnly"></div>*@
+                        <div class="mb-3 row">
+                            <label asp-for="Coordinator.Name" class="p-1"></label>
+                            <input asp-for="Coordinator.Name" class="form-control border-0 shadow" />
+                            <span asp-validation-for="Coordinator.Name" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="Coordinator.Designation" class="p-1"></label>
+                            <input asp-for="Coordinator.Designation" class="form-control border-0 shadow" />
+                            <span asp-validation-for="Coordinator.Designation" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="Coordinator.Description" class="p-1"></label>
+                            <textarea asp-for="Coordinator.Description" class="form-control border-0 shadow"></textarea>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="Coordinator.Batch" class="p-1"></label>
+                            <input asp-for="Coordinator.Batch" class="form-control border-0 shadow" />
+                            <span asp-validation-for="Coordinator.Batch" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="Coordinator.LinkedIn" class="p-1"></label>
+                            <input asp-for="Coordinator.LinkedIn" class="form-control border-0 shadow" />
+                            <span asp-validation-for="Coordinator.LinkedIn" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="Coordinator.ImageUrl" class="p-1 text-muted"></label>
+                            <input type="file" name="file" asp-for="Coordinator.ImageUrl" class="form-control border-0 shadow" />
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-3">
+                                @if (Model.Coordinator.Id != 0)
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Update</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Create</button>
+                                }
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a asp-controller="Admin" asp-action="Index" class="btn btn-outline-secondary border form-control">
+                                    Back to List
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img src="@Model.Coordinator.ImageUrl" width="100%" style="border-radius:5px; border:1px solid #bbb9b9"
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'mentions anchor autolink charmap emoticons lists table visualblocks wordcount checklist mediaembed casechange export pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough| align lineheight | tinycomments | checklist numlist bullist indent outdent',
+        });
+    </script>
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    
+}
