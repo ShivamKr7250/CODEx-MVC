@@ -47,6 +47,53 @@ namespace CODEx.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        public IActionResult UpsertGlimpse(EventVM eventVM, List<IFormFile> imageFiles)
+        {
+            if (ModelState.IsValid)
+            {
+                string wwwRootPath = _webHostEnvironment.WebRootPath;
+                List<string> imageUrls = new List<string>();
+
+                foreach (var file in imageFiles)
+                {
+                    if (file != null && file.Length > 0)
+                    {
+                        string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                        string productPath = Path.Combine(wwwRootPath, @"images\event");
+
+                        using (var fileStream = new FileStream(Path.Combine(productPath, fileName), FileMode.Create))
+                        {
+                            file.CopyTo(fileStream);
+                        }
+
+                        imageUrls.Add(@"\images\event\" + fileName);
+                    }
+                }
+
+                // Assuming your Event model has a property for storing image URLs, e.g., Event.ImageUrls
+                eventVM.Event.Glimpse1 = string.Join(",", imageUrls);
+
+                if (eventVM.Event.Id == 0)
+                {
+                    _unitOfWork.Event.Add(eventVM.Event);
+                }
+                else
+                {
+                    _unitOfWork.Event.Update(eventVM.Event);
+                }
+
+                _unitOfWork.Save();
+                TempData["success"] = "Event Created/Updated Successfully";
+                return RedirectToAction("Index", "Coordinator");
+            }
+            else
+            {
+                return View(eventVM);
+            }
+        }
+
+
+        [HttpPost]
         public IActionResult Upsert(EventVM eventVM, IFormFile? file)
         {
             if (ModelState.IsValid)

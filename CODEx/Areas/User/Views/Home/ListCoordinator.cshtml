@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Coordinator>
+
+<!-- Our Team Section -->
+<section id="services" class="services-section row p-2">
+    <h1> Our Coordinators</h1>
+    <h2>CODEx Club MMDU</h2>
+    <p>Community of Developers</p>
+    @foreach(var coordinatorList in Model)
+    {
+        <div class="col-lg-3 col-sm-6">
+            <div class="row p-2">
+                <div class="col-12 p-1">
+                    <div class="card border-0  p-3 shadow border-top border-5 rounded">
+                        <img src="@coordinatorList.ImageUrl" class="card-img-top rounded" />
+                        <div class="card-body pb-0">
+                            <div class="pl-1">
+                                <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@coordinatorList.Name</p>
+                                <p class="card-title text-warning text-center">by <b>@coordinatorList.Description</b></p>
+                            </div>
+                        </div>
+                        <div>
+                            <a asp-action="Details" asp-route-eventId="@coordinatorList.Id" class="btn btn-primary bg-gradient border-0 form-control">
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <!-- Add more services as needed -->
+</section>
+

@@ -1,0 +1,32 @@
+﻿@using CODEx.Model.View_Models
+@model EventVM
+
+
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3 row">
+        <label asp-for="Event.Glimpse1" class="p-1 text-muted"></label>
+        <input type="file" name="file" asp-for="Event.Glimpse1" class="form-control border-0 shadow" multiple />
+    </div>
+    <!-- other form fields -->
+    <div class="row">
+        <div class="col-6 col-md-3">
+            @if (Model.Event.Id != 0)
+            {
+                <button type="submit" class="btn btn-primary form-control">Update</button>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-primary form-control">Create</button>
+            }
+        </div>
+        <div class="col-6 col-md-3">
+            <a asp-controller="Admin" asp-action="Index" class="btn btn-outline-secondary border form-control">
+                Back to List
+            </a>
+        </div>
+    </div>
+</form>
+
+<div class="col-2">
+    <img src="@Model.Event.Glimpse1" width="100%" style="border-radius:5px; border:1px solid #bbb9b9"
+</div>

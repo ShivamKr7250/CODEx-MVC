@@ -9,7 +9,7 @@
 <header class="banner">
     <h1>Welcome to CODEx Club MMDU</h1>
     <p>Community of Developers</p>
-    <a href="#about" class="btn">Learn More</a>
+    <a asp-controller="Home" asp-action="About" class="btn">Learn More</a>
 </header>
 <br />
 <hr />
@@ -56,8 +56,8 @@
         </div>
     </div>
     }
-        <a asp-area="Admin" asp-action="Details" asp-controller="Coordinator" asp class="btn btn-primary bg-gradient border-0 form-control">
-                Details
+    <a asp-area="User" asp-action="ListCoordinator" asp-controller="Home" asp class="btn btn-primary bg-gradient border-0 form-control">
+                View All The Members
         </a>
     <!-- Add more team members as needed -->
 </section>
