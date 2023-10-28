@@ -39,6 +39,26 @@
                             <label asp-for="Event.PosterUrl" class="p-1 text-muted"></label>
                             <input type="file" name="file" asp-for="Event.PosterUrl" class="form-control border-0 shadow" />
                         </div>
+                        <div class="mb-3 row">
+                            <label asp-for="Event.VideoUrl" class="p-1"></label>
+                            <input asp-for="Event.VideoUrl" class="form-control border-0 shadow" />
+                            <span asp-validation-for="Event.VideoUrl" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="Event.InstagramPostUrl" class="p-1"></label>
+                            <input asp-for="Event.InstagramPostUrl" class="form-control border-0 shadow" />
+                            <span asp-validation-for="Event.InstagramPostUrl" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="Event.LinkdinUrl" class="p-1"></label>
+                            <input asp-for="Event.LinkdinUrl" class="form-control border-0 shadow" />
+                            <span asp-validation-for="Event.LinkdinUrl" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 row">
+                            <label asp-for="Event.FacebookUrl" class="p-1"></label>
+                            <input asp-for="Event.FacebookUrl" class="form-control border-0 shadow" />
+                            <span asp-validation-for="Event.FacebookUrl" class="text-danger"></span>
+                        </div>
                         <div class="row">
                             <div class="col-6 col-md-3">
                                 @if (Model.Event.Id != 0)

@@ -26,5 +26,13 @@ namespace CODEx.Model
         public int TotalParticipant {  get; set; }
 
         public string? Glimpse1 { get; set; }
+
+        public string? VideoUrl { get; set; }
+
+        public string? InstagramPostUrl { get; set; }
+
+        public string? LinkdinUrl { get; set; }
+
+        public string? FacebookUrl { get; set; }
     }
 }
