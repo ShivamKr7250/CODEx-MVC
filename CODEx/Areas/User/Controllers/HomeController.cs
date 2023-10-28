@@ -43,11 +43,26 @@ namespace CODEx.Areas.User.Controllers
             return View(coordinatorList);
         }
 
+        public IActionResult ListEvents()
+        {
+            IEnumerable<Events> eventsList = _unitOfWork.Event.GetAll();
+            return View(eventsList);
+        }
+
+
+        public IActionResult CoordinatorDetails(int? coordinatorId)
+        {
+            Coordinator coordinator = _unitOfWork.Coordinator.Get(x => x.Id == coordinatorId);
+            return View(coordinator);
+        }
+
         public IActionResult Details(int eventId)
         {
             Events events = _unitOfWork.Event.Get(u => u.Id == eventId);
             return View(events);
         }
+
+        
 
         public IActionResult Privacy()
         {

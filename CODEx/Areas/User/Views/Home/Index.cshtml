@@ -2,8 +2,9 @@
 @model ListVM
 
 @{
-    var limit = 5; // Set your desired limit here
+    var limit = 4; // Set your desired limit here
     var coordinators = Model.Coordinators.Take(limit);
+    var events = Model.Events.Take(limit);
 }
 
 <header class="banner">
@@ -16,7 +17,7 @@
 <!-- Our Services Section -->
 <section id="services" class="services-section row p-2">
     <h2>Our Events</h2>
-    @foreach (var eventlist in Model.Events)
+    @foreach (var eventlist in events)
     {
         <div class="col-lg-3 col-sm-6">
             <div class="row p-2">
@@ -39,6 +40,9 @@
             </div>
         </div>
     }
+    <a asp-area="User" asp-action="ListEvents" asp-controller="Home" asp class="btn btn-primary bg-gradient border-0 form-control">
+        View All The Members
+    </a>
     <!-- Add more services as needed -->
 </section>
 <br />

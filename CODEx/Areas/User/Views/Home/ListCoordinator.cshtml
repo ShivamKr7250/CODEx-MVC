@@ -5,6 +5,13 @@
     <h1> Our Coordinators</h1>
     <h2>CODEx Club MMDU</h2>
     <p>Community of Developers</p>
+    <div class="row">
+        <div class="col-6 col-md-2 offset-lg-1 pb-1">
+            <a asp-action="Index" class="btn btn-outline-primary bg-gradient mb-5 fw-semibold btn-sm text-uppercase">
+                <small>Back to Home</small>
+            </a>
+        </div>
+    </div>
     @foreach(var coordinatorList in Model)
     {
         <div class="col-lg-3 col-sm-6">
@@ -15,12 +22,12 @@
                         <div class="card-body pb-0">
                             <div class="pl-1">
                                 <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@coordinatorList.Name</p>
-                                <p class="card-title text-warning text-center">by <b>@coordinatorList.Description</b></p>
+                                <p class="card-title text-warning text-center"><b>@coordinatorList.Description</b></p>
                             </div>
                         </div>
                         <div>
-                            <a asp-action="Details" asp-route-eventId="@coordinatorList.Id" class="btn btn-primary bg-gradient border-0 form-control">
-                                Details
+                            <a asp-action="CoordinatorDetails" asp-route-coordinatorId="@coordinatorList.Id" class="btn btn-primary bg-gradient border-0 form-control">
+                                Show Details
                             </a>
                         </div>
                     </div>
