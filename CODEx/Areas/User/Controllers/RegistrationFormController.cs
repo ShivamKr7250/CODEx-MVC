@@ -15,6 +15,12 @@ namespace CODEx.Areas.User.Controllers
 
         public IActionResult Index()
         {
+            List<RegistrationForm> objRegistrationList = _unitOfWork.RegistrationForm.GetAll().ToList();
+            return View(objRegistrationList);
+        }
+
+        public IActionResult Create()
+        {
             return View();
         }
 
@@ -26,7 +32,7 @@ namespace CODEx.Areas.User.Controllers
                 _unitOfWork.RegistrationForm.Add(obj);
                 _unitOfWork.Save();
                 TempData["success"] = "Category Created Successfully";
-                return RedirectToAction("Index", "Category");
+                return RedirectToAction("Minithon", "Home");
             }
             return View();
 

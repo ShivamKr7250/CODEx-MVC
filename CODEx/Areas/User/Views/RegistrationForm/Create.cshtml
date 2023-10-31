@@ -22,19 +22,74 @@
                 <div class="mb-3 row">
                     <label asp-for="Department" class="p-1"></label>
                     <input asp-for="Department" class="form-control" />
-                    <span asp-validation-for="TeamName" class="text-danger"></span>
+                    <span asp-validation-for="Department" class="text-danger"></span>
                 </div>
                 <div class="mb-3 row">
                     <label asp-for="TeamLeaderNanme" class="p-1"></label>
                     <input asp-for="TeamLeaderNanme" class="form-control" />
                     <span asp-validation-for="TeamLeaderNanme" class="text-danger"></span>
                 </div>
+                <div class="mb-3 row">
+                    <label asp-for="LeaderNumber" class="p-1"></label>
+                    <input asp-for="LeaderNumber" class="form-control" />
+                    <span asp-validation-for="LeaderNumber" class="text-danger"></span>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="LeaderEmail" class="p-1"></label>
+                    <input asp-for="LeaderEmail" class="form-control" />
+                    <span asp-validation-for="LeaderEmail" class="text-danger"></span>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="Member2Name" class="p-1"></label>
+                    <input asp-for="Member2Name" class="form-control" />
+                    <span asp-validation-for="Member2Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="Member2Number" class="p-1"></label>
+                    <input asp-for="Member2Number" class="form-control" />
+                    <span asp-validation-for="Member2Number" class="text-danger"></span>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="Member3Name" class="p-1"></label>
+                    <input asp-for="Member3Name" class="form-control" />
+                    <span asp-validation-for="Member3Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="Member3Number" class="p-1"></label>
+                    <input asp-for="Member2Number" class="form-control" />
+                    <span asp-validation-for="Member3Number" class="text-danger"></span>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="Member4Name" class="p-1"></label>
+                    <input asp-for="Member4Name" class="form-control" />
+                    <span asp-validation-for="Member4Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="Member4Number" class="p-1"></label>
+                    <input asp-for="Member4Number" class="form-control" />
+                    <span asp-validation-for="Member4Number" class="text-danger"></span>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="Theme" class="p-1"></label>
+                    <input asp-for="Theme" class="form-control" />
+                    <span asp-validation-for="Theme" class="text-danger"></span>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="Category" class="p-1"></label>
+                    <input asp-for="Category" class="form-control" />
+                    <span asp-validation-for="Category" class="text-danger"></span>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="ProblemStatment" class="p-1"></label>
+                    <input asp-for="ProblemStatment" class="form-control" />
+                    <span asp-validation-for="ProblemStatment" class="text-danger"></span>
+                </div>
                 <div class="row">
                     <div class="col-6 col-md-3">
                         <button type="submit" class="btn btn-primary form-control">Create</button>
                     </div>
                     <div class="col-6 col-md-3">
-                        <a asp-controller="Category" asp-action="Index" class="btn btn-outline-secondary border form-control">
+                        <a asp-controller="Home" asp-action="Minithon" class="btn btn-outline-secondary border form-control">
                             Back to List
                         </a>
                     </div>
