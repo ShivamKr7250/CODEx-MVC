@@ -12,6 +12,8 @@ namespace CODEx.DataAccess.Repository.IRepository
 
         ICoordinatorRepository Coordinator { get; }
 
+        IRegistrationFormRepository RegistrationForm { get; }
+
         void Save();
     }
 }

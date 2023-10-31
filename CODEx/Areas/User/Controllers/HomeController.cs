@@ -64,7 +64,7 @@ namespace CODEx.Areas.User.Controllers
 
         
 
-        public IActionResult Privacy()
+        public IActionResult Minithon()
         {
             return View();
         }
