@@ -1,0 +1,45 @@
+﻿@model RegistrationForm
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row text-center">
+            <h2 class="text-primary py-2">Create Category</h2>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row">
+            <div class="border p-3">
+                <div class="mb-3 row">
+                    <label asp-for="TeamName" class="p-1"></label>
+                    <input asp-for="TeamName" class="form-control" />
+                    <span asp-validation-for="TeamName" class="text-danger"></span>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="College" class="p-1"></label>
+                    <input asp-for="College" class="form-control" />
+                    <span asp-validation-for="College" class="text-danger"></span>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="Department" class="p-1"></label>
+                    <input asp-for="Department" class="form-control" />
+                    <span asp-validation-for="TeamName" class="text-danger"></span>
+                </div>
+                <div class="mb-3 row">
+                    <label asp-for="TeamLeaderNanme" class="p-1"></label>
+                    <input asp-for="TeamLeaderNanme" class="form-control" />
+                    <span asp-validation-for="TeamLeaderNanme" class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-primary form-control">Create</button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="Category" asp-action="Index" class="btn btn-outline-secondary border form-control">
+                            Back to List
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -25,7 +25,9 @@
 
 
 
-<button class="btn btn-primary" asp-action="Index" asp-controller="RegistrationForm">Register Now</button>
+<a asp-area="User" asp-controller="RegistrationForm" asp-action="Create" class="btn btn-primary bg-gradient border-0 form-control">
+    Register Now
+</a>
 
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />

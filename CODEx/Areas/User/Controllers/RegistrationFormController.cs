@@ -1,12 +1,35 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CODEx.DataAccess.Repository.IRepository;
+using CODEx.Model;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CODEx.Areas.User.Controllers
 {
+    [Area("User")]
     public class RegistrationFormController : Controller
     {
+        private readonly IUnitOfWork _unitOfWork;
+        public RegistrationFormController(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(RegistrationForm obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _unitOfWork.RegistrationForm.Add(obj);
+                _unitOfWork.Save();
+                TempData["success"] = "Category Created Successfully";
+                return RedirectToAction("Index", "Category");
+            }
+            return View();
+
         }
     }
 }
