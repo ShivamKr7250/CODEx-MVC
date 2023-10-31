@@ -19,6 +19,8 @@ namespace CODEx.DataAccess.Data
 
         public DbSet<Coordinator> Coordinator { get; set; } 
 
+        public DbSet<RegistrationForm> RegistrationForm { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
