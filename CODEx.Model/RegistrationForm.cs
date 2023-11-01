@@ -20,7 +20,7 @@ namespace CODEx.Model
         public string? Department { get; set; }
 
         [DisplayName("Leader Name")]
-        public string? TeamLeaderName { get; set; }
+        public string? TeamLeaderNanme { get; set; }
 
         [DisplayName("Leader Phone Number")]
         public string? LeaderNumber  { get; set; }
