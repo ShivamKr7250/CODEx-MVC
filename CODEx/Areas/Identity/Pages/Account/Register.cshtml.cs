@@ -155,7 +155,10 @@ namespace CODEx.Areas.Identity.Pages.Account
                     {
                         await _userManager.AddToRoleAsync(user, Input.Role);
                     }
-
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, SD.Role_Student);
+                    }
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));

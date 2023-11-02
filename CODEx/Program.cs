@@ -28,6 +28,12 @@ builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 builder.Services.AddRazorPages();
 
+builder.Services.AddAuthentication().AddFacebook(opt =>
+{
+    opt.ClientId = "282762684736414";
+    opt.ClientSecret = "e8883e6646951f07a5e596a8662e60f2";
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
