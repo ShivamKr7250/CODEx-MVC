@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using CODEx.Utility
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,26 +26,30 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Minithon">Minithon 2.0</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Society Management
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="Admin" asp-action="Index">Add Events</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="Coordinator" asp-action="Index">Add Coordinator</a>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="Admin" asp-action="InsertGlimpse">Add Glimpse</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="User" asp-controller="RegistrationForm" asp-action="Index">View Registration</a>
-                                </li>
-                            </ul>
-                        </li>
+                        @if (User.IsInRole(SD.Role_Admin))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Society Management
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="Admin" asp-controller="Admin" asp-action="Index">Add Events</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="Admin" asp-controller="Coordinator" asp-action="Index">Add Coordinator</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="Admin" asp-controller="Admin" asp-action="InsertGlimpse">Add Glimpse</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="User" asp-controller="RegistrationForm" asp-action="Index">View Registration</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                       
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
