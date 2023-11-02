@@ -2,10 +2,13 @@
 using CODEx.Model.View_Models;
 using CODEx.Model;
 using Microsoft.AspNetCore.Mvc;
+using CODEx.Utility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CODEx.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CoordinatorController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

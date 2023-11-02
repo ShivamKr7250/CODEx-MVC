@@ -2,11 +2,14 @@
 using CODEx.DataAccess.Repository.IRepository;
 using CODEx.Model;
 using CODEx.Model.View_Models;
+using CODEx.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CODEx.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles =SD.Role_Admin)]
     public class AdminController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -93,6 +96,38 @@ namespace CODEx.Areas.Admin.Controllers
             {
                 return View(eventVM);
             }
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            //Multiple Ways to Retrieve Data and Edit 
+
+            Events? eventFromDb = _unitOfWork.Event.Get(u => u.Id == id); //Find work only on primary key
+                                                                                  // Category? categoryFromDb1 = _db.Categories.FirstOrDefault(u=>u.Id==id);
+                                                                                  // Category? categoryFromDb2 = _db.Categories.Where(u=>u.Id==id).FirstOrDefault();
+            if (eventFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(eventFromDb);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePOST(int? id)
+        {
+            Events obj = _unitOfWork.Event.Get(u => u.Id == id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _unitOfWork.Event.Remove(obj);
+            _unitOfWork.Save();
+            TempData["success"] = "Event Deleted Successfully";
+            return RedirectToAction("Index", "Admin");
         }
     }
 }

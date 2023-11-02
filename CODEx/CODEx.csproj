@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CODEx.DataAccess\CODEx.DataAccess.csproj" />
+    <ProjectReference Include="..\CODEx.Utility\CODEx.Utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>
