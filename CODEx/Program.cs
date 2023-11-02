@@ -28,6 +28,12 @@ builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 builder.Services.AddRazorPages();
 
+builder.Services.AddAuthentication().AddMicrosoftAccount(opt =>
+{
+    opt.ClientId = "dCK8Q~NxkIOvia~cbLOuMSMvcx3vkXxuc24AGde0";
+    opt.ClientSecret = "f63be879-6157-4417-8cb9-1b199af91acf";
+});
+
 builder.Services.AddAuthentication().AddFacebook(opt =>
 {
     opt.ClientId = "282762684736414";
