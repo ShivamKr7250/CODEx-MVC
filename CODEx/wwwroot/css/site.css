@@ -20,7 +20,7 @@
     }
 
 /* Button style */
-.btn {
+.btnb {
     display: inline-block;
     background-color: #007BFF;
     color: #fff;
@@ -31,7 +31,7 @@
     transition: background-color 0.3s;
 }
 
-    .btn:hover {
+    .btnb:hover {
         background-color: #0056b3;
     }
 
