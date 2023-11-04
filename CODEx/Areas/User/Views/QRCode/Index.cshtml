@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "QR Code Generator";
+}
+
+<h2>QR Code Generator</h2>
+
+@using (Html.BeginForm("GenerateQRCode", "QRCode", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("QR Code Text")
+        @Html.TextBox("qrCodeText", null, new { @class = "form-control", placeholder = "Enter your text" })
+    </div>
+
+    <button type="submit" class="btn btn-success">Generate QR Code</button>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.QRCodeImageSrc))
+{
+    <img src="@ViewBag.QRCodeImageSrc" width="300" class="mt-4" />
+    @Html.ActionLink("Download QR Code", "GenerateQRCode", new { qrCodeText = ViewBag.QRCodeText }, new { @class = "btn btn-primary mt-2" })
+}

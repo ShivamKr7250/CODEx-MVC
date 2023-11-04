@@ -1,0 +1,3 @@
+﻿Azure: Server=tcp:codexclubmmdu.database.windows.net,1433;Initial Catalog=CODEx;Persist Security Info=False;User ID=sqladmin;Password=Admin@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+
+LocalHost: localhost\\SQLEXPRESS; Database=CODEx; Trusted_Connection=True; TrustServerCertificate=True;
