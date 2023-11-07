@@ -34,7 +34,7 @@ namespace CODEx.Areas.User.Controllers
             {
                 _unitOfWork.RegistrationForm.Add(obj);
                 _unitOfWork.Save();
-                TempData["success"] = "Category Created Successfully";
+                TempData["success"] = "Registration Created Successfully";
                 return RedirectToAction("Minithon", "Home");
             }
             return View();
