@@ -90,7 +90,7 @@ namespace CODEx.Areas.Admin.Controllers
                 }
                 _unitOfWork.Save();
                 TempData["success"] = "Product Created Successfully";
-                return RedirectToAction("Index", "Coordinator");
+                return RedirectToAction("Index", "Admin");
             }
             else
             {
