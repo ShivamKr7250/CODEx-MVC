@@ -40,12 +40,19 @@ namespace CODEx.Areas.User.Controllers
                 _unitOfWork.RegistrationForm.Add(obj);
                 _unitOfWork.Save();
                 TempData["success"] = "Registration Created Successfully";
-                return RedirectToAction("TeamId", "RegistrationForm");
+                return RedirectToAction("TeamId", "RegistrationForm", new { teamId = obj.Id });
             }
             return View();
         }
 
+        public IActionResult TeamId(int teamId)
+        {
+            RegistrationForm uniqueId = _unitOfWork.RegistrationForm.Get(x => x.Id == teamId);
+            return View(uniqueId);
 
+            //var uniqueId = _unitOfWork.RegistrationForm.Get(x => x.Id == registrationId);
+            //return View(uniqueId);
+        }
 
         public IActionResult ExportToExcel()
         {
@@ -94,10 +101,6 @@ namespace CODEx.Areas.User.Controllers
             }
         }
 
-        public IActionResult TeamId(int? registrationId)
-        {
-            var uniqueId = _unitOfWork.RegistrationForm.Get(x => x.Id == registrationId);
-            return View(uniqueId);
-        }
+        
     }
 }
