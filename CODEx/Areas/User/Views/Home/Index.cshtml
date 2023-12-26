@@ -28,10 +28,10 @@
                                         "CODEx isn't just about programming; it's about empowering each other to write the future."
                                 </p>
                                 <div class="btn-box">
-                                    <a href="" class="btn-1">
+                                        <a asp-controller="Home" asp-area="User" asp-action="ListEvents" class="btn-1">
                                         Our Events
                                     </a>
-                                    <a href="" class="btn-2">
+                                        <a asp-area="User" asp-controller="Home" asp-action="AboutUs" class="btn-2">
                                         About Us
                                     </a>
                                 </div>
@@ -149,7 +149,7 @@
                     <p>
                         Words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks
                     </p>
-                    <a href="">
+                    <a asp-area="User" asp-controller="Home" asp-action="AboutUs">
                         Read More
                     </a>
                 </div>
@@ -166,7 +166,7 @@
 
 <!-- end about section -->
 
-<!-- service section -->
+<!-- Coordinator section -->
 
 <section class="service_section layout_padding">
     <div class="container">
@@ -194,12 +194,12 @@
                             @coordinatorlist.Designation
                         </p>
                             <div class="text-center">
-                                <a href="#" class="btn btn-social btn-facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="#" class="btn btn-social btn-instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="#" class="btn btn-social btn-linkedin"><i class="bi bi-linkedin"></i></a>
-                                <a href="#" class="btn btn-social btn-youtube"><i class="bi bi-youtube"></i></a>
+                                <a href="@coordinatorlist.Facebook" class="btn btn-social btn-facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="@coordinatorlist.Instagram" class="btn btn-social btn-instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="@coordinatorlist.LinkedIn" class="btn btn-social btn-linkedin"><i class="bi bi-linkedin"></i></a>
+                                <a href="@coordinatorlist.Github" class="btn btn-social btn-github"><i class="bi bi-github"></i></a>
                             </div>
-                        <a href="">
+                            <a asp-area="User" asp-route-coordinatorId="@coordinatorlist.Id" asp-action="CoordinatorDetails" asp-controller="Home">
                             Read More
                                 <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
 
@@ -209,6 +209,9 @@
             </div>
             }
     </div>
+        <div class="col-12 text-center">
+            <a asp-area="User" asp-action="ListCoordinator" asp-controller="Home" class="btn btn-primary btn-gradient">View All Members</a>
+        </div>
 </section>
 
 <!-- end service section -->
@@ -227,10 +230,10 @@
                     <h5 class="card-title text-center text-uppercase">@eventItem.Name</h5>
                     <p class="card-text text-center text-muted">@eventItem.Description</p>
                     <div class="text-center">
-                        <a href="#" class="btn btn-social btn-facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="btn btn-social btn-instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="btn btn-social btn-linkedin"><i class="bi bi-linkedin"></i></a>
-                        <a href="#" class="btn btn-social btn-youtube"><i class="bi bi-youtube"></i></a>
+                        <a href="@eventItem.FacebookUrl" class="btn btn-social btn-facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="@eventItem.InstagramPostUrl" class="btn btn-social btn-instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="@eventItem.LinkdinUrl" class="btn btn-social btn-linkedin"><i class="bi bi-linkedin"></i></a>
+                        <a href="@eventItem.VideoUrl" class="btn btn-social btn-youtube"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
                 <div class="text-center">
@@ -246,25 +249,6 @@
 </section>
 
 <br />
-<hr />
-@* <!-- Team Members Section -->
-<section id="team" class="team-section">
-    <h2>Our Team</h2>
-    @foreach (var coordinatorlist in coordinators)
-    {
-    <div class="team-member">
-        <div class="team-member-info">
-                <img src="@coordinatorlist.ImageUrl" alt="Team Member 1">
-            <h3>@coordinatorlist.Name</h3>
-            <p>@coordinatorlist.Designation</p>
-        </div>
-    </div>
-    }
-    <a asp-area="User" asp-action="ListCoordinator" asp-controller="Home" asp class="btn btn-primary bg-gradient border-0 form-control">
-                View All The Members
-        </a>
-    <!-- Add more team members as needed -->
-</section> *@
 
 
 

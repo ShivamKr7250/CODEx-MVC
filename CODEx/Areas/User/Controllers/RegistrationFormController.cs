@@ -2,7 +2,9 @@
 using CODEx.DataAccess.Repository.IRepository;
 using CODEx.Model;
 using CODEx.Model.View_Models;
+using CODEx.Utility;
 using DocumentFormat.OpenXml.Drawing.Charts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OfficeOpenXml;
@@ -10,6 +12,7 @@ using OfficeOpenXml;
 namespace CODEx.Areas.User.Controllers
 {
     [Area("User")]
+    [Authorize]
     public class RegistrationFormController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
