@@ -20,6 +20,7 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>TeamId</th>
                     <th>Team Name</th>
                     <th>Leader Name</th>
                     <th>Leader Email</th>
@@ -34,6 +35,7 @@
                 @foreach (var obj in Model.OrderBy(u => u.Id))
                 {
                     <tr>
+                        <td>@obj.TeamId</td>
                         <td>@obj.TeamName</td>
                         <td>@obj.TeamLeaderNanme</td>
                         <td>@obj.LeaderEmail</td>

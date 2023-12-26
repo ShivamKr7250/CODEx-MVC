@@ -62,7 +62,6 @@ namespace CODEx.Areas.User.Controllers
             return View(events);
         }
 
-        
 
         public IActionResult Minithon()
         {

@@ -1,6 +1,8 @@
 ﻿using ClosedXML.Excel;
 using CODEx.DataAccess.Repository.IRepository;
 using CODEx.Model;
+using CODEx.Model.View_Models;
+using DocumentFormat.OpenXml.Drawing.Charts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OfficeOpenXml;
@@ -30,16 +32,20 @@ namespace CODEx.Areas.User.Controllers
         [HttpPost]
         public IActionResult Create(RegistrationForm obj)
         {
+            Random random = new Random();
+            int registrationId = random.Next(1000, 9999);
             if (ModelState.IsValid)
             {
+                obj.TeamId = $"MINI2024{registrationId}";
                 _unitOfWork.RegistrationForm.Add(obj);
                 _unitOfWork.Save();
                 TempData["success"] = "Registration Created Successfully";
-                return RedirectToAction("Minithon", "Home");
+                return RedirectToAction("TeamId", "RegistrationForm");
             }
             return View();
-
         }
+
+
 
         public IActionResult ExportToExcel()
         {
@@ -56,21 +62,23 @@ namespace CODEx.Areas.User.Controllers
                 int row = 1;
                 foreach (var registration in data)
                 {
-                    worksheet.Cell(row, 1).Value = registration.TeamName;
-                    worksheet.Cell(row, 2).Value = registration.College;
-                    worksheet.Cell(row, 3).Value = registration.Department;
-                    worksheet.Cell(row, 4).Value = registration.TeamLeaderNanme;
-                    worksheet.Cell(row, 5).Value = registration.LeaderNumber;
-                    worksheet.Cell(row, 6).Value = registration.LeaderEmail;
-                    worksheet.Cell(row, 7).Value = registration.Member2Name;
-                    worksheet.Cell(row, 8).Value = registration.Member2Number;
-                    worksheet.Cell(row, 9).Value = registration.Member3Name;
-                    worksheet.Cell(row, 10).Value = registration.Member3Number;
-                    worksheet.Cell(row, 11).Value = registration.Member4Name;
-                    worksheet.Cell(row, 12).Value = registration.Member4Number;
-                    worksheet.Cell(row, 13).Value = registration.Theme;
-                    worksheet.Cell(row, 14).Value = registration.Category;
-                    worksheet.Cell(row, 15).Value = registration.ProblemStatment;
+                    worksheet.Cell(row, 1).Value = registration.TeamId;
+                    worksheet.Cell(row, 2).Value = registration.TeamName;
+                    worksheet.Cell(row, 3).Value = registration.College;
+                    worksheet.Cell(row, 4).Value = registration.Department;
+                    worksheet.Cell(row, 5).Value = registration.TeamLeaderNanme;
+                    worksheet.Cell(row, 6).Value = registration.LeaderNumber;
+                    worksheet.Cell(row, 7).Value = registration.LeaderEmail;
+                    worksheet.Cell(row, 8).Value = registration.Member2Name;
+                    worksheet.Cell(row, 9).Value = registration.Member2Number;
+                    worksheet.Cell(row, 10).Value = registration.Member3Name;
+                    worksheet.Cell(row, 12).Value = registration.Member3Number;
+                    worksheet.Cell(row, 12).Value = registration.Member4Name;
+                    worksheet.Cell(row, 13).Value = registration.Member4Number;
+                    worksheet.Cell(row, 14).Value = registration.Theme;
+                    worksheet.Cell(row, 15).Value = registration.Category;
+                    worksheet.Cell(row, 16).Value = registration.ProblemStatment;
+                    
 
                     row++;
                 }
@@ -86,5 +94,10 @@ namespace CODEx.Areas.User.Controllers
             }
         }
 
+        public IActionResult TeamId(int? registrationId)
+        {
+            var uniqueId = _unitOfWork.RegistrationForm.Get(x => x.Id == registrationId);
+            return View(uniqueId);
+        }
     }
 }

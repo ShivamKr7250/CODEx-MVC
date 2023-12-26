@@ -52,5 +52,7 @@ namespace CODEx.Model
 
         [DisplayName("Problem Statement")]
         public string? ProblemStatment { get; set; }
+
+        public string? TeamId { get; set; }
     }
 }

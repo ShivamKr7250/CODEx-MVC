@@ -2,56 +2,252 @@
 @model ListVM
 
 @{
-    var limit = 4; // Set your desired limit here
+    var limit = 6; // Set your desired limit here
     var coordinators = Model.Coordinators.Take(limit);
     var events = Model.Events.Take(limit);
 }
 
-<header class="banner">
-    <h1>Welcome to CODEx Club MMDU</h1>
-    <p>Community of Developers</p>
-    <a asp-controller="Home" asp-action="About" class="btnb">Learn More</a>
-</header>
-<br />
-<hr />
-<!-- Our Services Section -->
-<section id="services" class="services-section row p-2">
-    <h2>Our Events</h2>
-    @foreach (var eventlist in events)
-    {
-        <div class="col-lg-3 col-sm-6">
-            <div class="row p-2">
-                <div class="col-12 p-1">
-                    <div class="card border-0  p-3 shadow border-top border-5 rounded">
-                        <img src="@eventlist.PosterUrl" class="card-img-top rounded" />
-                        <div class="card-body pb-0">
-                            <div class="pl-1">
-                                <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@eventlist.Name</p>
-                                <p class="card-title text-warning text-center"> <b>@eventlist.Description</b></p>
-                                <a><i class="bi bi-facebook"></i></a>
-                                <i class="bi bi-instagram"></i>
-                                <i class="bi bi-linkedin"></i>
-                                <i class="bi bi-youtube"></i>
+<style>
+
+</style>
+<div class="hero_area">
+<!-- slider section -->
+<section class="slider_section ">
+    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="detail-box">
+                                <h1>
+                                    CODEx Club MM(DU) <br>
+                                    Community of Developer
+                                </h1>
+                                <p>
+                                    Anything embarrassing hidden in the middle of text. All the Lorem Ipsuanything embarrassing hidden in the middle of text. All the Lorem Ipsumm
+                                </p>
+                                <div class="btn-box">
+                                    <a href="" class="btn-1">
+                                        Our Events
+                                    </a>
+                                    <a href="" class="btn-2">
+                                        About Us
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <a asp-action="Details" asp-route-eventId="@eventlist.Id" class="btn btn-primary bg-gradient border-0 form-control">
-                                Details
-                            </a>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class=" col-lg-10 mx-auto">
+                                    <div class="img-box">
+                                        <img src="~/image/slider-img.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+@*             <div class="carousel-item">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="detail-box">
+                                <h1>
+                                    Fast & Secure <br>
+                                    Web Hosting
+                                </h1>
+                                <p>
+                                    Anything embarrassing hidden in the middle of text. All the Lorem Ipsuanything embarrassing hidden in the middle of text. All the Lorem Ipsumm
+                                </p>
+                                <div class="btn-box">
+                                    <a href="" class="btn-1">
+                                        Read More
+                                    </a>
+                                    <a href="" class="btn-2">
+                                        Contact Us
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class=" col-lg-10 mx-auto">
+                                    <div class="img-box">
+                                        <img src="~/image/slider-img.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="detail-box">
+                                <h1>
+                                    Fast & Secure <br>
+                                    Web Hosting
+                                </h1>
+                                <p>
+                                    Anything embarrassing hidden in the middle of text. All the Lorem Ipsuanything embarrassing hidden in the middle of text. All the Lorem Ipsumm
+                                </p>
+                                <div class="btn-box">
+                                    <a href="" class="btn-1">
+                                        Read More
+                                    </a>
+                                    <a href="" class="btn-2">
+                                        Contact Us
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class=" col-lg-10 mx-auto">
+                                    <div class="img-box">
+                                        <img src="~/image/slider-img.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> *@
+        <div class="carousel_btn-box">
+            <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+                    <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+                    <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- end slider section -->
+</div>
+
+<br />
+<!-- about section -->
+
+<section class="about_section layout_padding-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="detail-box">
+                    <div class="heading_container">
+                        <h2>
+                            About Us
+                        </h2>
+                    </div>
+                    <p>
+                        Words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks
+                    </p>
+                    <a href="">
+                        Read More
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 ">
+                <div class="img-box">
+                    <img src="~/images/banner/codex.jpeg" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- end about section -->
+
+<!-- service section -->
+
+<section class="service_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Our Team
+            </h2>
+        </div>
+    </div>
+    <div class="">
+        <div class="row">
+            @foreach (var coordinatorlist in coordinators)
+    {
+            <div class="col-md-6 col-lg-4">
+                <div class="box ">
+                    
+                    <div class="img-box">
+                            <img src="@coordinatorlist.ImageUrl" />
+                    </div>
+                    <div class="detail-box">
+                        <h4>
+                            @coordinatorlist.Name
+                        </h4>
+                        <p>
+                            @coordinatorlist.Designation
+                        </p>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-social btn-facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="btn btn-social btn-instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="btn btn-social btn-linkedin"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="btn btn-social btn-youtube"><i class="bi bi-youtube"></i></a>
+                            </div>
+                        <a href="">
+                            Read More
+                                <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+            }
+    </div>
+</section>
+
+<!-- end service section -->
+
+
+<!-- Our Events Section -->
+<section id="events" class="events-section row p-4">
+    <h2 class="text-center mb-4">Our Events</h2>
+
+    @foreach (var eventItem in events)
+    {
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 p-3 shadow rounded">
+                <img src="@eventItem.PosterUrl" class="card-img-top rounded" alt="Event Poster" style="height: 450px; object-fit: cover;" />
+                <div class="card-body">
+                    <h5 class="card-title text-center text-uppercase">@eventItem.Name</h5>
+                    <p class="card-text text-center text-muted">@eventItem.Description</p>
+                    <div class="text-center">
+                        <a href="#" class="btn btn-social btn-facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-social btn-instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="btn btn-social btn-linkedin"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="btn btn-social btn-youtube"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a asp-action="Details" asp-route-eventId="@eventItem.Id" class="btn btn-primary btn-details">Details</a>
+                </div>
+            </div>
         </div>
     }
-    <a asp-area="User" asp-action="ListEvents" asp-controller="Home" asp class="btn btn-primary bg-gradient border-0 form-control">
-        View All The Event
-    </a>
-    <!-- Add more services as needed -->
+
+    <div class="col-12 text-center">
+        <a asp-area="User" asp-action="ListEvents" asp-controller="Home" class="btn btn-primary btn-gradient">View All Events</a>
+    </div>
 </section>
+
 <br />
 <hr />
-<!-- Team Members Section -->
+@* <!-- Team Members Section -->
 <section id="team" class="team-section">
     <h2>Our Team</h2>
     @foreach (var coordinatorlist in coordinators)
@@ -68,7 +264,7 @@
                 View All The Members
         </a>
     <!-- Add more team members as needed -->
-</section>
+</section> *@
 
 
 
