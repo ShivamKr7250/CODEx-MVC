@@ -48,6 +48,7 @@ namespace CODEx.Areas.User.Controllers
             return View();
         }
 
+
         public IActionResult TeamId(int teamId)
         {
             RegistrationForm uniqueId = _unitOfWork.RegistrationForm.Get(x => x.Id == teamId);
