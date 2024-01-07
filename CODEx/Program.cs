@@ -39,7 +39,6 @@ builder.Services.AddAuthentication().AddFacebook(opt =>
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
-
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
