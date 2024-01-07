@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace CODEx.DataAccess.Repository.IRepository
 {
     public interface IUnitOfWork
@@ -13,6 +8,8 @@ namespace CODEx.DataAccess.Repository.IRepository
         ICoordinatorRepository Coordinator { get; }
 
         IRegistrationFormRepository RegistrationForm { get; }
+
+        IApplicationUserRepository ApplicationUser { get; }
 
         void Save();
     }

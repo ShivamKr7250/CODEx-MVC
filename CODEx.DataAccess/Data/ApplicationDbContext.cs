@@ -13,7 +13,9 @@ namespace CODEx.DataAccess.Data
 
         public DbSet<Events> Event { get; set; }
 
-        public DbSet<Coordinator> Coordinator { get; set; } 
+        public DbSet<Coordinator> Coordinator { get; set; }
+
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         public DbSet<RegistrationForm> RegistrationForm { get; set; }
 

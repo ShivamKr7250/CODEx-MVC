@@ -73,6 +73,11 @@ namespace CODEx.Areas.User.Controllers
             return View();
         }
 
+        public IActionResult Community()
+        {
+            return View();
+        }
+
         public IActionResult UpcomingEvent()
         {
             return View();

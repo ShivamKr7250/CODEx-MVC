@@ -8,6 +8,7 @@ namespace CODEx.DataAccess.Repository
         private ApplicationDbContext _db;
         public IEventRepository Event { get; private set; }
         public IRegistrationFormRepository RegistrationForm { get; private set; }
+        public IApplicationUserRepository ApplicationUser { get; private set; }
         public ICoordinatorRepository Coordinator { get; private set; }
         public UnitOfWork(ApplicationDbContext db)
         {
@@ -15,6 +16,7 @@ namespace CODEx.DataAccess.Repository
             Event = new EventRepository(_db);
             RegistrationForm = new RegistrationFormRepository(_db);
             Coordinator = new CoordinatorRepository(_db);
+            ApplicationUser = new ApplicationUserRepository(_db);
         }
 
         public void Save()

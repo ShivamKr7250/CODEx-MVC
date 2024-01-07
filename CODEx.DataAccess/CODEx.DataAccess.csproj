@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CODEx.Model\CODEx.Model.csproj" />
+    <ProjectReference Include="..\CODEx.Utility\CODEx.Utility.csproj" />
   </ItemGroup>
 
 </Project>

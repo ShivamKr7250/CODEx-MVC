@@ -45,10 +45,21 @@
                                 <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Minithon">Minithon 2024</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="UpcomingEvent">Upcoming Events</a>
+                            <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Community">Community</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="AboutUs">About Us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Events
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="User" asp-controller="Home" asp-action="UpcomingEvent">Upcoming Events</a>
+                                <a class="dropdown-item" asp-area="User" asp-controller="Home" asp-action="ListEvents">All Events</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item">Learning Materials</a>
+                            </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -85,6 +96,7 @@
     <!-- end header section -->
     <div class="">
         <main role="main" class="pb-3">
+            <partial name="_Notification" />
             @RenderBody()
         </main>
     </div>
@@ -93,7 +105,7 @@
         <div class="container">
             <p>
                 &copy; <span id="displayYear"></span> All Rights Reserved By
-                <a href="https://html.design/">CODEx Club MM(DU)</a>
+                <a href="#">CODEx Club MM(DU)</a>
             </p>
         </div>
     </footer>

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using CODEx.Utility;
+using CODEx.DataAccess.DbInitializer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,11 +24,6 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 });
 
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped<IEmailSender, EmailSender>();
-
-builder.Services.AddRazorPages();
-
 builder.Services.AddAuthentication().AddMicrosoftAccount(opt =>
 {
     opt.ClientId = "dCK8Q~NxkIOvia~cbLOuMSMvcx3vkXxuc24AGde0";
@@ -39,6 +35,12 @@ builder.Services.AddAuthentication().AddFacebook(opt =>
     opt.ClientId = "282762684736414";
     opt.ClientSecret = "e8883e6646951f07a5e596a8662e60f2";
 });
+
+builder.Services.AddScoped<IDbInitializer, DbInitializer>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IEmailSender, EmailSender>();
+
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -54,7 +56,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+SeedDatabase();
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -64,3 +66,12 @@ app.MapControllerRoute(
     pattern: "{area=User}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+void SeedDatabase()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+        dbInitializer.Initialize();
+    }
+}
