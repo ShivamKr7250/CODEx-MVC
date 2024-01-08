@@ -71,7 +71,7 @@
                                 }
                             </div>
                             <div class="col-6 col-md-3">
-                                <a asp-controller="Admin" asp-action="Index" class="btn btn-outline-secondary border form-control">
+                                <a asp-controller="Coordinator" asp-action="Index" class="btn btn-outline-secondary border form-control">
                                     Back to List
                                 </a>
                             </div>
@@ -91,13 +91,6 @@
 
 
 @section Scripts{
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'mentions anchor autolink charmap emoticons lists table visualblocks wordcount checklist mediaembed casechange export pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
-            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough| align lineheight | tinycomments | checklist numlist bullist indent outdent',
-        });
-    </script>
     @{
         <partial name="_ValidationScriptsPartial" />
     }

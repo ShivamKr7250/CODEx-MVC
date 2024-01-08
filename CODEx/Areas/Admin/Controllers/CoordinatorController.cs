@@ -95,5 +95,37 @@ namespace CODEx.Areas.Admin.Controllers
                 return View(coordinatorVM);
             }
         }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            //Multiple Ways to Retrieve Data and Edit 
+
+            Coordinator? coordinatorFromDb = _unitOfWork.Coordinator.Get(u => u.Id == id); //Find work only on primary key
+                                                                          // Category? categoryFromDb1 = _db.Categories.FirstOrDefault(u=>u.Id==id);
+                                                                          // Category? categoryFromDb2 = _db.Categories.Where(u=>u.Id==id).FirstOrDefault();
+            if (coordinatorFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(coordinatorFromDb);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePOST(int? id)
+        {
+            Coordinator obj = _unitOfWork.Coordinator.Get(u => u.Id == id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _unitOfWork.Coordinator.Remove(obj);
+            _unitOfWork.Save();
+            TempData["success"] = "Coordinator Deleted Successfully";
+            return RedirectToAction("Index", "Coordinator");
+        }
     }
 }
