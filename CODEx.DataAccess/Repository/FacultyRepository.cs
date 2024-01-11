@@ -4,17 +4,17 @@ using CODEx.Model;
 
 namespace CODEx.DataAccess.Repository
 {
-    public class CoordinatorRepository : Repository<Coordinator>, ICoordinatorRepository
+    public class FacultyRepository : Repository<Faculty>, IFacultyRepository
     {
         private ApplicationDbContext _db;
-        public CoordinatorRepository(ApplicationDbContext db) : base(db)
+        public FacultyRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }
 
-        public void Update(Coordinator obj)
+        public void Update(Faculty obj)
         {
-            _db.Coordinator.Update(obj);
+            _db.Faculties.Update(obj);
         }
     }
 }

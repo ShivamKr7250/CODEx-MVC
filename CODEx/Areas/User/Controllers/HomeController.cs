@@ -23,10 +23,12 @@ namespace CODEx.Areas.User.Controllers
         {
             IEnumerable<Events> eventList = _unitOfWork.Event.GetAll();
             IEnumerable<Coordinator> coordinatorList = _unitOfWork.Coordinator.GetAll();
+            IEnumerable<Faculty> faculty = _unitOfWork.Faculty.GetAll();
             var viewModel = new ListVM
             {
                 Events = eventList,
-                Coordinators = coordinatorList
+                Coordinators = coordinatorList,
+                Faculty = faculty
             };
 
             return View(viewModel);

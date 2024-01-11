@@ -1,6 +1,7 @@
 ﻿using CODEx.Model;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace CODEx.DataAccess.Data
 {
@@ -19,6 +20,8 @@ namespace CODEx.DataAccess.Data
 
         public DbSet<RegistrationForm> RegistrationForm { get; set; }
 
+        public DbSet<Faculty> Faculties { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -36,6 +39,10 @@ namespace CODEx.DataAccess.Data
                 new Coordinator { Id = 3, Name = "Edge Map ", Description = "This was a Technical Event", Designation = "Secretary", Batch = "2021-2025" },
                 new Coordinator { Id = 4, Name = "TechNode", Description = "This was a Technical Event", Designation = "Vice-Secretary", Batch = "2021-2025" }
                 );
+
+            modelBuilder.Entity<Faculty>().HasData(
+                new Faculty { Id=1, Name="S.P Singh", Desigation="Faculty Coordinator", ImageUrl="" },
+                new Faculty { Id = 2, Name = "Vineta Gulati", Desigation = "Faculty Coordinator", ImageUrl = "" });
         }
     }
 }

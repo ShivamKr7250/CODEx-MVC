@@ -11,6 +11,8 @@ namespace CODEx.DataAccess.Repository.IRepository
 
         IApplicationUserRepository ApplicationUser { get; }
 
+        IFacultyRepository Faculty { get; }
+
         void Save();
     }
 }
